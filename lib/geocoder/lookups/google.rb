@@ -65,6 +65,7 @@ module Geocoder::Lookup
       params = {
         (query.reverse_geocode? ? :latlng : :address) => query.sanitized_text,
         :sensor => "false",
+        :new_forward_geocoder => "true",
         :language => (query.language || configuration.language)
       }
       unless (bounds = query.options[:bounds]).nil?
